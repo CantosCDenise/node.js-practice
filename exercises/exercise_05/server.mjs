@@ -1,0 +1,19 @@
+import { createServer } from "node:http";
+
+const server = createServer((request, response) => {
+    console.log("request received");
+
+    response.statusCode = 200; //200 means okay, the request was succesful
+
+    response.setHeader("Content-Type", "text/html"); //We are adding to response a new header a its value is text/html
+
+    response.end("<html><body><h1>Hi! I'm trying my new HTTP server!</h1></body></html>");
+});
+
+server.listen(3000, () => {
+    console.log(`Server running at http://localhost:3000`);
+}); //We are specifying the port, any data that arrive to port 3000 should be sent to this script, and once its set up properly the callback function will run
+
+
+
+//to stop our server we use the shortcut key ctrl + c
